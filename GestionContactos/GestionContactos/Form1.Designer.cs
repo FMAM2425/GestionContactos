@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnAnCon = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAnCon
@@ -41,11 +42,22 @@
             this.btnAnCon.UseVisualStyleBackColor = true;
             this.btnAnCon.Click += new System.EventHandler(this.btnAnCon_Click);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(12, 85);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(123, 43);
+            this.btnEliminar.TabIndex = 1;
+            this.btnEliminar.Text = "Eliminar contacto";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAnCon);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnAnCon;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
 

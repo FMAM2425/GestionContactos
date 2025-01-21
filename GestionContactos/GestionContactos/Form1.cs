@@ -57,5 +57,25 @@ namespace GestionContactos
                 MessageBox.Show("Se ha registrado exitosamente");
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string nom;
+            
+            nom = Interaction.InputBox("Nombre del contacto");
+
+            for (int i = 0; i < nombre.Length; i++)
+            {
+                if (nom == nombre[i])
+                {
+                    nombre[i] = "";
+                    numero[i] = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Ese contacto no existe");
+                }
+            }
+        }
     }
 }
