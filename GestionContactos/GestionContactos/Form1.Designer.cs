@@ -30,6 +30,7 @@
         {
             this.btnAnCon = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModif = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAnCon
@@ -52,11 +53,22 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnModif
+            // 
+            this.btnModif.Location = new System.Drawing.Point(12, 146);
+            this.btnModif.Name = "btnModif";
+            this.btnModif.Size = new System.Drawing.Size(123, 45);
+            this.btnModif.TabIndex = 2;
+            this.btnModif.Text = "Modificar telefono";
+            this.btnModif.UseVisualStyleBackColor = true;
+            this.btnModif.Click += new System.EventHandler(this.btnModif_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnModif);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAnCon);
             this.Name = "Form1";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button btnAnCon;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnModif;
     }
 }
 

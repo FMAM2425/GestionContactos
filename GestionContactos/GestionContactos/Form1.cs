@@ -22,8 +22,9 @@ namespace GestionContactos
         const int Numero = 10;
         string[] nombre = new string[Nombre];
         int[] numero = new int[Numero];
+        int i = 0;
 
-        bool AñadirContacto(string nom, int num, string[] nombre, int[] contacto)
+        bool ComprobarContacto(string nom, int num, string[] nombre, int[] contacto)
         {
             bool coincide = false;
             for(int i = 0; i < nombre.Length; i++)
@@ -45,16 +46,21 @@ namespace GestionContactos
             nom = Interaction.InputBox("Nombre del contacto");
             num = int.Parse(Interaction.InputBox("Numero del contacto"));
 
-            coincide = AñadirContacto(nom, num, nombre, numero);
+            coincide = ComprobarContacto(nom, num, nombre, numero);
             if (coincide) 
             {
                 MessageBox.Show("El contacto coincide");
             }
             else
             {
-                nombre[nombre.Length-1] = nom;
-                numero[numero.Length-1] = num;
-                MessageBox.Show("Se ha registrado exitosamente");
+                nombre[i] = nom;
+                numero[i] = num;
+                i++;
+                MessageBox.Show("Se ha registrado satisfactoriamente");
+                if(i == nombre.Length)
+                {
+                    i = 0;
+                }
             }
         }
 
@@ -74,6 +80,26 @@ namespace GestionContactos
                 else
                 {
                     MessageBox.Show("Ese contacto no existe");
+                }
+            }
+        }
+
+        private void btnModif_Click(object sender, EventArgs e)
+        {
+            string nom;
+            int tlf;
+            bool encontrado = false;
+
+            nom = Interaction.InputBox("Introduce el contacto \nque quieres modificar");
+
+            for(int i = 0;i < nombre.Length && !encontrado; i++)
+            {
+                if(nom == nombre[i])
+                {
+                    encontrado = true;
+                    tlf = int.Parse(Interaction.InputBox("Introduce un nuevo telefono para " + nombre[i]));
+                    numero[i] = tlf;
+                    MessageBox.Show("El telefono a sido modificado satisfactoriamente");
                 }
             }
         }
