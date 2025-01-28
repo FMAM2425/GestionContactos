@@ -67,15 +67,17 @@ namespace GestionContactos
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             string nom;
+            bool coincide = false;
             
             nom = Interaction.InputBox("Nombre del contacto");
 
-            for (int i = 0; i < nombre.Length; i++)
+            for (int i = 0; i < nombre.Length && coincide == false; i++)
             {
                 if (nom == nombre[i])
                 {
                     nombre[i] = "";
                     numero[i] = 0;
+                    coincide = true;
                 }
                 else
                 {
@@ -102,6 +104,23 @@ namespace GestionContactos
                     MessageBox.Show("El telefono a sido modificado satisfactoriamente");
                 }
             }
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            string texto = "";
+            for (int i = 0; i < nombre.Length; i++)
+            {
+                if (numero[i] == 0)
+                {
+                    texto += "Contacto vacío\n";
+                }
+                else
+                {
+                    texto += nombre[i] + " " + numero[i] + "\n";
+                }
+            }
+            MessageBox.Show(texto);
         }
     }
 }

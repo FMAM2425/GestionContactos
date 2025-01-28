@@ -31,6 +31,7 @@
             this.btnAnCon = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModif = new System.Windows.Forms.Button();
+            this.btnMostrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAnCon
@@ -63,11 +64,22 @@
             this.btnModif.UseVisualStyleBackColor = true;
             this.btnModif.Click += new System.EventHandler(this.btnModif_Click);
             // 
+            // btnMostrar
+            // 
+            this.btnMostrar.Location = new System.Drawing.Point(12, 221);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(123, 42);
+            this.btnMostrar.TabIndex = 3;
+            this.btnMostrar.Text = "Mostrar Contactos";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.btnModif);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAnCon);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button btnAnCon;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModif;
+        private System.Windows.Forms.Button btnMostrar;
     }
 }
 
