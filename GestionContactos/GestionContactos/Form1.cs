@@ -18,10 +18,9 @@ namespace GestionContactos
             InitializeComponent();
         }
 
-        const int Nombre = 10;
-        const int Numero = 10;
-        string[] nombre = new string[Nombre];
-        int[] numero = new int[Numero];
+        const int Tamaño = 10;
+        string[] nombre = new string[Tamaño];
+        int[] numero = new int[Tamaño];
         int i = 0;
 
         bool ComprobarContacto(string nom, int num, string[] nombre, int[] contacto)
@@ -37,19 +36,44 @@ namespace GestionContactos
             return coincide;
         }
 
+        int ComprobarContactoLibre(string[] nombre)
+        {
+            int i, numCon = 0;
+            bool vacio = false;
+
+            for(i = 0; i < nombre.Length && vacio == false; i++)
+            {
+                if (nombre[i] == "")
+                {
+                    vacio = true;
+                    numCon = i;
+
+                }
+            }
+
+            return numCon;
+        }
+
         private void btnAnCon_Click(object sender, EventArgs e)
         {
             string nom;
-            int num;
+            int num, numCon;
             bool coincide;
 
             nom = Interaction.InputBox("Nombre del contacto");
             num = int.Parse(Interaction.InputBox("Numero del contacto"));
 
             coincide = ComprobarContacto(nom, num, nombre, numero);
+            numCon = ComprobarContactoLibre(nombre);
             if (coincide) 
             {
                 MessageBox.Show("El contacto coincide");
+            }
+            else if (numCon != 0)
+            {
+                nombre[numCon] = nom;
+                numero[numCon] = num;
+                MessageBox.Show("Se ha registrado satisfactoriamente");
             }
             else
             {
@@ -59,7 +83,7 @@ namespace GestionContactos
                 MessageBox.Show("Se ha registrado satisfactoriamente");
                 if(i == nombre.Length)
                 {
-                    i = 0;
+                    MessageBox.Show("Error:\nEsta llena la agenda");
                 }
             }
         }
@@ -79,10 +103,14 @@ namespace GestionContactos
                     numero[i] = 0;
                     coincide = true;
                 }
-                else
-                {
-                    MessageBox.Show("Ese contacto no existe");
-                }
+            }
+            if (coincide)
+            {
+                MessageBox.Show("Se ha eliminado exitosamente");
+            }
+            else
+            {
+                MessageBox.Show("Ese contacto no existe");
             }
         }
 
